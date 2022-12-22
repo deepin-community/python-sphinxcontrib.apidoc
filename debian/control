@@ -1,0 +1,35 @@
+Source: python-sphinxcontrib.apidoc
+Section: python
+Priority: optional
+Maintainer: Debian OpenStack <team+openstack@tracker.debian.org>
+Uploaders:
+ Thomas Goirand <zigo@debian.org>,
+Build-Depends:
+ debhelper (>= 10),
+ dh-python,
+ openstack-pkg-tools,
+ python3-all,
+ python3-pbr,
+ python3-setuptools,
+ python3-sphinx,
+Build-Depends-Indep:
+ python3-pytest,
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/openstack-team/libs/python-sphinxcontrib.apidoc
+Vcs-Git: https://salsa.debian.org/openstack-team/libs/python-sphinxcontrib.apidoc.git
+Homepage: https://github.com/sphinx-contrib/apidoc
+
+Package: python3-sphinxcontrib.apidoc
+Architecture: all
+Depends:
+ python3-pbr,
+ ${misc:Depends},
+ ${python3:Depends},
+Description: Sphinx extension for running 'sphinx-apidoc' on each build - Python 3.x
+ sphinx-apidoc is a tool for automatic generation of Sphinx sources that, using
+ the autodoc sphinx_autodoc extension, documents a whole package in the style
+ of other automatic API documentation tools. sphinx-apidoc does not actually
+ build documentation - rather it simply generates it. As a result, it must be
+ run before sphinx-build.
+ .
+ This package contains the Python 3.x module.

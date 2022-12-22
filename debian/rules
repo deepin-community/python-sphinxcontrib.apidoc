@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+UPSTREAM_GIT := https://github.com/sphinx-contrib/apidoc.git
+include /usr/share/openstack-pkg-tools/pkgos.make
+
+%:
+	dh $@ --buildsystem=python_distutils --with python3
+
+override_dh_auto_build:
+	echo "Nothing here..."
+
+override_dh_auto_clean:
+	echo "Nothing here..."
+
+override_dh_auto_install:
+	pkgos-dh_auto_install --no-py2
+
+override_dh_auto_test:
+ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+	set -e ; for pyvers in $(PYTHON3S); do \
+		PYTHONPATH=. PYTHON=python$$pyvers python$$pyvers -m pytest tests ; \
+	done
+endif
+
+override_dh_clean:
+	dh_clean -O--buildsystem=python_distutils
+	rm -rf build
