@@ -6,10 +6,12 @@ include /usr/share/openstack-pkg-tools/pkgos.make
 %:
 	dh $@ --buildsystem=python_distutils --with python3
 
-override_dh_auto_build:
-	echo "Nothing here..."
-
 override_dh_auto_clean:
+	rm -rf build .stestr .pytest_cache *.egg-info
+	find . -iname '*.pyc' -delete
+	for i in $$(find . -type d -iname __pycache__) ; do rm -rf $$i ; done
+
+override_dh_auto_build:
 	echo "Nothing here..."
 
 override_dh_auto_install:
