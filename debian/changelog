@@ -1,3 +1,21 @@
+python-sphinxcontrib.apidoc (0.3.0-5) unstable; urgency=medium
+
+  * Add fix_tests_with_Sphinx_7.2.patch (Closes: #1057600).
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 12 Dec 2023 14:05:18 +0100
+
+python-sphinxcontrib.apidoc (0.3.0-4) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Use debhelper-compat instead of debian/compat.
+  * Bump Standards-Version to 4.4.1.
+
+  [ Thomas Goirand ]
+  * Cleans better (Closes: #1046499).
+  * Use debhelper-compat 11.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 18 Aug 2023 00:37:11 +0200
+
 python-sphinxcontrib.apidoc (0.3.0-2) unstable; urgency=medium
 
   * Uploading to unstable.
